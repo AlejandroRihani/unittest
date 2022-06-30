@@ -58,7 +58,7 @@ public class CalculadoraTest {
 		double resultadoEsperado = 5;
 		
 		//Verificación. Comparar el resultado de ejecucuón vs ejecución esperada
-		assertThat(resultado, is(resultadoEsperado));
+		assertThat(resultado, is(resultadoEsperado + 1));
 	}
 	
 	@Test
