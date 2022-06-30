@@ -12,7 +12,7 @@ jobs:
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
-      - image: cimg/openjdk:11.0
+      - image: circleci/openjdk:11-browsers-legacy
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -27,8 +27,8 @@ jobs:
           name: Test
           command: mvn test
       - run:
-          name: Message
-          command: echo testttt
+          name: Mensaje
+          command: echo "Testing echo"
       - run:
           name: Save test results
           command: |
@@ -37,6 +37,7 @@ jobs:
           when: always
       - store_test_results:
           path: ~/test-results
+          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
