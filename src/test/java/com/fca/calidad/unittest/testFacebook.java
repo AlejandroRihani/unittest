@@ -80,7 +80,7 @@ public class testFacebook {
 		    pause(1000);
 		    password.sendKeys(Keys.ENTER);
 		    pause(5000);
-		    assertEquals(driver.getCurrentUrl(),"https://www.facebook.com/");
+		    assertEquals(driver.getCurrentUrl(),"https://[es-es.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjU2NzE2MjkyLCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D");
 	 }
 	  @After
 	  public void tearDown() throws Exception {
