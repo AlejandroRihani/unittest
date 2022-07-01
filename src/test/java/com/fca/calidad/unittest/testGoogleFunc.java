@@ -51,16 +51,19 @@ public class testGoogleFunc {
 	    driver.get("https://www.google.com.mx/");
 
 	    driver.findElement(By.name("q")).clear();
-
+	    pause(5000);
 	    driver.findElement(By.name("q")).sendKeys("gatitos");
+	    pause(5000);
 	    driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+	    pause(5000);
 	    driver.findElement(By.linkText("Imágenes")).click();
+	    pause(5000);
 	    driver.findElement(By.xpath("//img[@alt='Todo lo que tienes que saber de los gatitos bebés | Purina®']")).click();
 	    pause(5000);
 	    driver.findElement(By.xpath("//div[@id='Sva75c']/div/div/div[3]/div[2]/c-wiz/div/div/div[3]/div/a/h1")).click();
 	    pause(5000);
 	    driver.get("https://www.purina-latam.com/mx/purina/nota/gatos/gatos-en-adopcion-que-saber-de-los-gatitos-bebes");
-	    pause(5000);
+	    pause(10000);
 	    assertEquals("Todo lo que tienes que saber de los gatitos bebés | Purina®", driver.getTitle());
 	    TakeScreenshot("testGoogleFunc.png");
 	  }
