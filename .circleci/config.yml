@@ -31,7 +31,7 @@ jobs:
           command: echo "Testing echo"
       - run:
           name: RunGoogleTest
-          command: mvn test -Dtest="testGoogleFunc.java"
+          command: mvn test -Dtest="testFacebook.java"
       - run:
           name: Save test results
           command: |
