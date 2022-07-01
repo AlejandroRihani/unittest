@@ -61,7 +61,7 @@ public class testFacebook {
 	    password.sendKeys(Keys.ENTER);
 	    pause(5000);
 	    WebElement error = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div/div[2]/div[2]/form/div/div[1]/div[2]"));
-	    assertEquals(error.getText(),"El correo electrónico o número de móvil que has introducido no está conectado a una cuenta. Encuentra tu cuenta e inicia sesión.");
+	    assertEquals(driver.getCurrentUrl(),"https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjU2NzE2ODc5LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D");
 	  }
 
 	 @Test
@@ -76,11 +76,11 @@ public class testFacebook {
 		    WebElement password = driver.findElement(By.id("pass"));
 		    password.click();
 		    pause(1000);
-		    password.sendKeys("");
+		    password.sendKeys("salazar19");
 		    pause(1000);
 		    password.sendKeys(Keys.ENTER);
 		    pause(5000);
-		    assertEquals(driver.getCurrentUrl(),"https://[es-es.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjU2NzE2MjkyLCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D");
+		    assertEquals(driver.getCurrentUrl(),"https://www.facebook.com/");
 	 }
 	  @After
 	  public void tearDown() throws Exception {
