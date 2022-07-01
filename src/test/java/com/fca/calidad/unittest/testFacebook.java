@@ -3,8 +3,11 @@ package com.fca.calidad.unittest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +17,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -62,7 +67,8 @@ public class testFacebook {
 	    pause(5000);
 	    //WebElement error = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div/div[2]/div[2]/form/div/div[1]/div[2]"));
 	    assertEquals(driver.getCurrentUrl(),"https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjU2NzE2ODc5LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D");
-	  }
+	    TakeScreenshot("WrongPath.png");
+	 }
 
 	 @Test
 	 public void testGoodPath() throws Exception {
@@ -81,7 +87,18 @@ public class testFacebook {
 		    password.sendKeys(Keys.ENTER);
 		    pause(5000);
 		    assertEquals(driver.getCurrentUrl(),"es-es.facebook.com/checkpoint/?next");
+		    TakeScreenshot("GoodPathFacebook.jpg");
 	 }
+	 
+	 public void TakeScreenshot(String name) {
+		    File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		    try {
+			    FileUtils.copyFile(scrFile, new File("tmp/screenshots/", name));
+		    }catch(IOException e) {
+		    	e.printStackTrace();
+		    }
+		}
+	 
 	  @After
 	  public void tearDown() throws Exception {
 	    driver.quit();
