@@ -3,8 +3,11 @@ package com.fca.calidad.unittest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +17,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -57,6 +62,7 @@ public class testGoogleFunc {
 	    driver.get("https://www.purina-latam.com/mx/purina/nota/gatos/gatos-en-adopcion-que-saber-de-los-gatitos-bebes");
 	    pause(5000);
 	    assertEquals("Todo lo que tienes que saber de los gatitos bebés | Purina®", driver.getTitle());
+	    TakeScreenshot("testGoogleFunc.png");
 	  }
 
 	  @After
@@ -85,7 +91,14 @@ public class testGoogleFunc {
 	      return false;
 	    }
 	  }
-
+	  public void TakeScreenshot(String name) {
+		    File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		    try {
+			    FileUtils.copyFile(scrFile, new File("src/screenshots/", name));
+		    }catch(IOException e) {
+		    	e.printStackTrace();
+		    }
+		}
 	  private String closeAlertAndGetItsText() {
 	    try {
 	      Alert alert = driver.switchTo().alert();
