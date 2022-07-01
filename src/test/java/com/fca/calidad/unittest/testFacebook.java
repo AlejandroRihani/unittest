@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -50,6 +51,7 @@ public class testFacebook {
 		}
 	}
 	 @Test
+	 @Ignore
 	  public void testWrongPath() throws Exception {
 	    driver.get("https://es-es.facebook.com/");
 	    pause(5000);
@@ -86,7 +88,7 @@ public class testFacebook {
 		    pause(1000);
 		    password.sendKeys(Keys.ENTER);
 		    pause(5000);
-		    assertEquals(driver.getCurrentUrl(),"es-es.facebook.com/checkpoint/?next");
+		    assertEquals(driver.getCurrentUrl(),"https://es-es.facebook.com/checkpoint/?next");
 		    TakeScreenshot("GoodPathFacebook.jpg");
 	 }
 	 
