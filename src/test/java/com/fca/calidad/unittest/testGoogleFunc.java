@@ -94,7 +94,7 @@ public class testGoogleFunc {
 	  public void TakeScreenshot(String name) {
 		    File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		    try {
-			    FileUtils.copyFile(scrFile, new File("src/screenshots/", name));
+			    FileUtils.copyFile(scrFile, new File("tmp/screenshots/", name));
 		    }catch(IOException e) {
 		    	e.printStackTrace();
 		    }
